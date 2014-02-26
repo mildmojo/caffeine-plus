@@ -7,99 +7,47 @@ msgid ""
 msgstr ""
 "Project-Id-Version: caffeine\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-12-11 00:10+0000\n"
+"POT-Creation-Date: 2014-02-25 21:00+0000\n"
 "PO-Revision-Date: 2013-12-11 13:01+0000\n"
 "Last-Translator: Caffeine Developers <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-12 05:18+0000\n"
-"X-Generator: Launchpad (build 16869)\n"
+"X-Launchpad-Export-Date: 2014-02-26 06:28+0000\n"
+"X-Generator: Launchpad (build 16935)\n"
 
-#. file 'caffeine/core.py', line 112
-msgid "Caffeine is dormant; powersaving is enabled"
-msgstr "Caffeine devre dışı: güç koruması aktif edildi."
-
-#. file 'caffeine/core.py', line 117
-msgid "Caffeine is preventing powersaving modes and screensaver activation"
+#. file 'caffeine/core.py', line 123
+msgid "Caffeine is dormant"
 msgstr ""
 
-#. file 'caffeine/main.py', line 164
+#. file 'caffeine/core.py', line 128
+msgid "Caffeine is preventing desktop idleness"
+msgstr ""
+
+#. file 'caffeine/main.py', line 64
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Caffeine Developers https://launchpad.net/~caffeine-developers\n"
 "  Fatih Bostancı https://launchpad.net/~fbostanci\n"
-"  Gökhan KILINÇ https://launchpad.net/~kilincgokhan\n"
 "  Oğuzhan Gökay ARI https://launchpad.net/~drakeos\n"
-"  Yusuf Kayan https://launchpad.net/~c08b\n"
-"  zeugma https://launchpad.net/~sunder67"
+"  Yusuf Kayan https://launchpad.net/~c08b"
 
-#. file 'caffeine/main.py', line 185
-#. file 'caffeine/main.py', line 227
+#. file 'caffeine/main.py', line 85
+#. file 'caffeine/main.py', line 100
 #. file 'share/caffeine/glade/GUI.glade', line ?
 msgid "Disable Screensaver"
 msgstr "Ekran koruyucuyu devre dışı bırak"
 
-#. file 'caffeine/main.py', line 185
-#. file 'caffeine/main.py', line 227
+#. file 'caffeine/main.py', line 85
+#. file 'caffeine/main.py', line 100
 msgid "Enable Screensaver"
 msgstr "Ekran koruyucuyu etkinleştir"
 
 #. file 'share/caffeine/glade/GUI.glade', line ?
-msgid ""
-"An application to temporarily prevent the activation of both\n"
-" the screen saver and the \"sleep\" powersaving mode."
+msgid "Manually and automatically control the desktop’s idle state"
 msgstr ""
-"Bir uygulama geçici olarak ekran koruyucusunun ve \"uyku\"\n"
-" güç tasarrufu modunun etkinleştirilmesini önlüyor."
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid "Preferences"
-msgstr "Tercihler"
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid "Automatic activation"
-msgstr "Otomatik etkinleştirme"
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid ""
-"Caffeine can activate automatically\n"
-"whenever certain programs are running."
-msgstr ""
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid "List of programs that Caffeine activates for:"
-msgstr ""
-"Çalıştığı taktirde Caffeine'in otomatik olarak aktifleştiği uygulamaların "
-"listesi:"
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid ""
-"When Caffeine detects that one of the processes in this\n"
-"list is running, it will prevent the activation of the screensaver\n"
-"and powersaving modes. This can be useful for applications\n"
-"(particularly full-screen applications) that do not properly\n"
-"prevent the screensaver and powersaving modes on their own."
-msgstr ""
-"Caffeine bu listedeki işlemlerden birinin çalıştığını\n"
-"tespit ederse, ekran koruyucunun ve güç tasarrufu modunun\n"
-"aktifleşmesini engelleyecektir. Bu, ekran koruyucu ve güç tasarrufu\n"
-"modunu otomatik olarak engelleyemeyen uygulamalar\n"
-"(özellikle tam ekran uygulamalar) için kullanışlı olabilir."
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid "Process Name"
-msgstr ""
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid "    "
-msgstr "    "
-
-#. file 'share/caffeine/glade/proc.glade', line ?
-msgid "Select a process name..."
-msgstr "Bir işlem adı seçiniz..."
 
 #~ msgid "15 minutes"
 #~ msgstr "15 dakika"
@@ -137,6 +85,9 @@ msgstr "Bir işlem adı seçiniz..."
 #~ msgid " and "
 #~ msgstr " ve "
 
+#~ msgid "Preferences"
+#~ msgstr "Tercihler"
+
 #~ msgid "Autostart"
 #~ msgstr "Otomatik Başlat"
 
@@ -152,6 +103,9 @@ msgstr "Bir işlem adı seçiniz..."
 #~ msgid "Please install"
 #~ msgstr "Lütfen yükleyiniz"
 
+#~ msgid "Caffeine is dormant; powersaving is enabled"
+#~ msgstr "Caffeine devre dışı: güç koruması aktif edildi."
+
 #~ msgid "Activated for Quake Live"
 #~ msgstr "Quake Live için etkinleştirildi"
 
@@ -164,6 +118,9 @@ msgstr "Bir işlem adı seçiniz..."
 #~ msgid "Activated for Flash video"
 #~ msgstr "Flash görüntü için etkinleştirildi"
 
+#~ msgid "Select a process name..."
+#~ msgstr "Bir işlem adı seçiniz..."
+
 #~ msgid "Recent Processes"
 #~ msgstr "En Son İşlemler"
 
@@ -172,6 +129,9 @@ msgstr "Bir işlem adı seçiniz..."
 
 #~ msgid "Activate for Quake Live"
 #~ msgstr "Quake Live için etkinleştir"
+
+#~ msgid "Automatic activation"
+#~ msgstr "Otomatik etkinleştirme"
 
 #~ msgid "Start Caffeine on login"
 #~ msgstr "Caffeine' i oturum açıldığında başlat"
@@ -213,6 +173,24 @@ msgstr "Bir işlem adı seçiniz..."
 #~ "aktifleşmesini otomatik olarak engellemesi için bu\n"
 #~ "seçeneği aktifleştirin. Oyunu bedava oynamak icin\n"
 #~ "www.quakelive.com adresini ziyaret edin."
+
+#~ msgid ""
+#~ "When Caffeine detects that one of the processes in this\n"
+#~ "list is running, it will prevent the activation of the screensaver\n"
+#~ "and powersaving modes. This can be useful for applications\n"
+#~ "(particularly full-screen applications) that do not properly\n"
+#~ "prevent the screensaver and powersaving modes on their own."
+#~ msgstr ""
+#~ "Caffeine bu listedeki işlemlerden birinin çalıştığını\n"
+#~ "tespit ederse, ekran koruyucunun ve güç tasarrufu modunun\n"
+#~ "aktifleşmesini engelleyecektir. Bu, ekran koruyucu ve güç tasarrufu\n"
+#~ "modunu otomatik olarak engelleyemeyen uygulamalar\n"
+#~ "(özellikle tam ekran uygulamalar) için kullanışlı olabilir."
+
+#~ msgid "List of programs that Caffeine activates for:"
+#~ msgstr ""
+#~ "Çalıştığı taktirde Caffeine'in otomatik olarak aktifleştiği uygulamaların "
+#~ "listesi:"
 
 #~ msgid ""
 #~ "Caffeine can activate automatically\n"

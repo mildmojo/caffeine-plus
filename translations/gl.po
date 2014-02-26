@@ -7,101 +7,51 @@ msgid ""
 msgstr ""
 "Project-Id-Version: caffeine\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-12-11 00:10+0000\n"
+"POT-Creation-Date: 2014-02-25 21:00+0000\n"
 "PO-Revision-Date: 2014-02-16 17:10+0000\n"
 "Last-Translator: Marcos Lans <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-02-17 05:41+0000\n"
-"X-Generator: Launchpad (build 16916)\n"
+"X-Launchpad-Export-Date: 2014-02-26 06:28+0000\n"
+"X-Generator: Launchpad (build 16935)\n"
 
-#. file 'caffeine/core.py', line 112
-msgid "Caffeine is dormant; powersaving is enabled"
-msgstr "Caffeine está inactivo. O modo de baixo consumo está activado"
-
-#. file 'caffeine/core.py', line 117
-msgid "Caffeine is preventing powersaving modes and screensaver activation"
+#. file 'caffeine/core.py', line 123
+msgid "Caffeine is dormant"
 msgstr ""
-"Caffeine está evitando o modo de aforro de enerxia e de activación do "
-"salvapantallas"
 
-#. file 'caffeine/main.py', line 164
+#. file 'caffeine/core.py', line 128
+msgid "Caffeine is preventing desktop idleness"
+msgstr ""
+
+#. file 'caffeine/main.py', line 64
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Caffeine Developers https://launchpad.net/~caffeine-developers\n"
 "  Marcos Lans https://launchpad.net/~markooss"
 
-#. file 'caffeine/main.py', line 185
-#. file 'caffeine/main.py', line 227
+#. file 'caffeine/main.py', line 85
+#. file 'caffeine/main.py', line 100
 #. file 'share/caffeine/glade/GUI.glade', line ?
 msgid "Disable Screensaver"
 msgstr "Desactivar o salvapantallas"
 
-#. file 'caffeine/main.py', line 185
-#. file 'caffeine/main.py', line 227
+#. file 'caffeine/main.py', line 85
+#. file 'caffeine/main.py', line 100
 msgid "Enable Screensaver"
 msgstr "Activar o salvapantallas"
 
 #. file 'share/caffeine/glade/GUI.glade', line ?
-msgid ""
-"An application to temporarily prevent the activation of both\n"
-" the screen saver and the \"sleep\" powersaving mode."
+msgid "Manually and automatically control the desktop’s idle state"
 msgstr ""
-"Un aplicativo está evitando temporalmente a activación do\n"
-"salvapantallas e do modo suspensión."
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid "Preferences"
-msgstr "Preferencias"
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid "Automatic activation"
-msgstr "Activación automática"
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid ""
-"Caffeine can activate automatically\n"
-"whenever certain programs are running."
-msgstr ""
-"Caffeine pode activarse automaticamente\n"
-"cando certos programas estean en execución."
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid "List of programs that Caffeine activates for:"
-msgstr "Lista de programas para os que Caffeine estará activado:"
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid ""
-"When Caffeine detects that one of the processes in this\n"
-"list is running, it will prevent the activation of the screensaver\n"
-"and powersaving modes. This can be useful for applications\n"
-"(particularly full-screen applications) that do not properly\n"
-"prevent the screensaver and powersaving modes on their own."
-msgstr ""
-"Cando Caffeine detecta que un dos procesos da lista está\n"
-"activo, inhibe a iniciación do protector de pantalla e do modo\n"
-"de baixo consumo. Isto resulta útil con aplicativos (espe-\n"
-"cialmente os programas en pantalla completa) que non\n"
-"inhiben por si mesmos o protector de pantalla e o modo\n"
-"de aforro de enerxia."
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid "Process Name"
-msgstr "Nome do proceso"
-
-#. file 'share/caffeine/glade/GUI.glade', line ?
-msgid "    "
-msgstr "    "
-
-#. file 'share/caffeine/glade/proc.glade', line ?
-msgid "Select a process name..."
-msgstr "Seleccionar un nome de proceso..."
 
 #~ msgid "Please install"
 #~ msgstr "Instalar"
+
+#~ msgid "Caffeine is dormant; powersaving is enabled"
+#~ msgstr "Caffeine está inactivo. O modo de baixo consumo está activado"
 
 #~ msgid "5 minutes"
 #~ msgstr "5 minutos"
@@ -160,6 +110,9 @@ msgstr "Seleccionar un nome de proceso..."
 #~ msgid " have elapsed; powersaving is re-enabled"
 #~ msgstr " desde a temporización. Reactivouse o modo de baixo consumo"
 
+#~ msgid "Preferences"
+#~ msgstr "Preferencias"
+
 #~ msgid "Autostart"
 #~ msgstr "Inicio automático"
 
@@ -175,12 +128,32 @@ msgstr "Seleccionar un nome de proceso..."
 #~ "tan pronto como o computador remate o arranque e\n"
 #~ "vostede introduza un usuario e contrasinal correctos."
 
+#~ msgid "Automatic activation"
+#~ msgstr "Activación automática"
+
 #~ msgid ""
 #~ "Caffeine can activate automatically\n"
 #~ "whenever certain programs are runnning."
 #~ msgstr ""
 #~ "Caffeine pode activarse automaticamente\n"
 #~ "cando se executen certos aplicativos."
+
+#~ msgid "List of programs that Caffeine activates for:"
+#~ msgstr "Lista de programas para os que Caffeine estará activado:"
+
+#~ msgid ""
+#~ "When Caffeine detects that one of the processes in this\n"
+#~ "list is running, it will prevent the activation of the screensaver\n"
+#~ "and powersaving modes. This can be useful for applications\n"
+#~ "(particularly full-screen applications) that do not properly\n"
+#~ "prevent the screensaver and powersaving modes on their own."
+#~ msgstr ""
+#~ "Cando Caffeine detecta que un dos procesos da lista está\n"
+#~ "activo, inhibe a iniciación do protector de pantalla e do modo\n"
+#~ "de baixo consumo. Isto resulta útil con aplicativos (espe-\n"
+#~ "cialmente os programas en pantalla completa) que non\n"
+#~ "inhiben por si mesmos o protector de pantalla e o modo\n"
+#~ "de aforro de enerxia."
 
 #~ msgid "Activate for Flash video"
 #~ msgstr "Activar para vídeo Flash"
@@ -202,6 +175,9 @@ msgstr "Seleccionar un nome de proceso..."
 
 #~ msgid "Activate for"
 #~ msgstr "Activar durante"
+
+#~ msgid "Select a process name..."
+#~ msgstr "Seleccionar un nome de proceso..."
 
 #~ msgid "Running Processes"
 #~ msgstr "Procesos activos"
