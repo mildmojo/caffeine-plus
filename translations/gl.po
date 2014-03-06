@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: caffeine\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-02-25 21:00+0000\n"
-"PO-Revision-Date: 2014-02-26 17:04+0000\n"
-"Last-Translator: Reuben Thomas <rrt@sc3d.org>\n"
+"PO-Revision-Date: 2014-03-06 00:38+0000\n"
+"Last-Translator: Marcos Lans <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-02-27 05:49+0000\n"
-"X-Generator: Launchpad (build 16935)\n"
+"X-Launchpad-Export-Date: 2014-03-06 05:50+0000\n"
+"X-Generator: Launchpad (build 16948)\n"
 
 #. file 'caffeine/core.py', line 123
 msgid "Caffeine is dormant"
-msgstr ""
+msgstr "Caffeine está inactivo"
 
 #. file 'caffeine/core.py', line 128
 msgid "Caffeine is preventing desktop idleness"
-msgstr ""
+msgstr "Caffeine está evitando a inactividade do escritorio"
 
 #. file 'caffeine/main.py', line 64
 msgid "translator-credits"
@@ -46,6 +46,7 @@ msgstr "Activar o salvapantallas"
 #. file 'share/caffeine/glade/GUI.glade', line ?
 msgid "Manually and automatically control the desktop’s idle state"
 msgstr ""
+"Controla manualmente e automaticamente o estado de inactividade do escritorio"
 
 #~ msgid "Please install"
 #~ msgstr "Instalar"
