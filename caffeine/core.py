@@ -30,6 +30,10 @@ import applicationinstance
 
 os.chdir(os.path.abspath(os.path.dirname(__file__)))
 
+def subprocess_output(cmd):
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+    p.wait()
+    return p
 
 class Caffeine(GObject.GObject):
 
@@ -64,33 +68,34 @@ class Caffeine(GObject.GObject):
 
         activate = False
 
-        # Enumerate the attached screens
-        displays = []
-
         # xvinfo returns 1 on normal exit: https://bugs.freedesktop.org/show_bug.cgi?id=74227
-        p = subprocess.Popen(['xvinfo'], stdout=subprocess.PIPE)
-        p.wait()
+        p = subprocess_output(['xvinfo'])
         if 0 <= p.returncode <= 1:
+            # Enumerate the attached screens
+            display = os.getenv("DISPLAY")
+            screens = []
+
             # Parse output
             for l in p.stdout.read().splitlines():
                 m = re.match('screen #([0-9]+)$', str(l))
                 if m:
-                    displays.append(m.group(1))
+                    screens.append(m.group(1))
 
-                    # Loop through every display looking for a fullscreen window
-                    for d in displays:
+                    # Loop through every screen looking for a full screen window
+                    for s in screens:
                         # get ID of active window (the focussed window)
-                        out = subprocess.check_output(['xprop', '-display', ':0.' + d, '-root', '-f', '_NET_ACTIVE_WINDOW', '32x', ' $0', '_NET_ACTIVE_WINDOW'])
-                        m = re.match('.* (.*)$', str(out))
-                        assert(m)
-                        active_win = m.group(1)
-                    
-                        if active_win != "0x0": # Skip invalid window IDs
+                        p = subprocess_output(['xprop', '-display', display + '.' + s, '-root', '-f', '_NET_ACTIVE_WINDOW', '32x', ' $0', '_NET_ACTIVE_WINDOW'])
+                        if p.returncode == 0:
+                            m = re.match('.* (.*)$', str(p.stdout.read()))
+                            assert(m)
+                            active_win = m.group(1)
+
                             # Check whether window is fullscreen
-                            out = subprocess.check_output(['xprop', '-display' ,':0.' + d, '-id', active_win, '_NET_WM_STATE'])
-                            m = re.search('_NET_WM_STATE_FULLSCREEN', str(out))
-                            if m:
-                                activate = True
+                            p = subprocess_output(['xprop', '-display', display + '.' + s, '-id', active_win, '_NET_WM_STATE'])
+                            if p.returncode == 0:
+                                m = re.search('_NET_WM_STATE_FULLSCREEN', str(p.stdout.read()))
+                                if m:
+                                    activate = True
 
         if activate and not self.getActivated():
             logging.info("Caffeine has detected a full-screen window, and will auto-activate")
