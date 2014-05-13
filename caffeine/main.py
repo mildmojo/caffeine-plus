@@ -28,10 +28,6 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-class GUI(object):
-    def __init__(self):
-        self.Core = core.Caffeine()
-        
 def main():
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     GObject.threads_init()
@@ -41,5 +37,4 @@ def main():
     parser.add_argument('-V', '--version', action='version', version='caffeine ' + caffeine.VERSION)
     parser.parse_args()
     
-    GUI()
     Gtk.main()
