@@ -17,43 +17,6 @@
 #
 
 
-import os
-from os.path import join, abspath, dirname, pardir
-from gi.repository import Gtk
-
-VERSION = "2.6.2"
-
-def getBasePath():
-    c = abspath(dirname(__file__))
-    while True:
-        if os.path.exists(os.path.join(c, "bin")) and \
-           os.path.exists(os.path.join(c, "share/caffeine")) :
-            return c
-
-        c = join(c, pardir)
-        if not os.path.exists(c):
-            raise Exception("Can't determine BASE_PATH")
-
-BASE_PATH = getBasePath()
-GLADE_PATH = join(BASE_PATH, 'share', 'caffeine', 'glade')
-
-### Setup translations
-###
-GETTEXT_DOMAIN = "caffeine"
-LOCALE_PATH = os.path.join(BASE_PATH, "share", "locale")
-
-import gettext
-import locale
-
-locale.setlocale(locale.LC_ALL, '')
-
-for module in locale, gettext:
-    module.bindtextdomain(GETTEXT_DOMAIN, LOCALE_PATH)
-    module.textdomain(GETTEXT_DOMAIN)
-
-# register the gettext function for the whole interpreter as "_"
-import __builtin__
-__builtin__._ = gettext.gettext
-
+VERSION = "2.7"
 
 from caffeine.main import main

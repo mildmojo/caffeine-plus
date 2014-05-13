@@ -51,7 +51,6 @@ class Caffeine(GObject.GObject):
         # Set to True when sleep mode has been successfully inhibited somehow.
         self.sleepIsPrevented = False
 
-        self.preventedForFullScreen = False
         self.screenSaverCookie = None
 
         # Add hook for full-screen check (same interval as mplayer's heartbeat command)
@@ -62,10 +61,6 @@ class Caffeine(GObject.GObject):
 
 
     def _check_for_fullscreen(self):
-        # Don't check full-screen if we're manually activated
-        if self.getActivated() and not self.preventedForFullScreen:
-            return True
-
         activate = False
 
         # xvinfo returns 1 on normal exit: https://bugs.freedesktop.org/show_bug.cgi?id=74227
@@ -102,18 +97,12 @@ class Caffeine(GObject.GObject):
         elif not activate and self.getActivated():
             logging.info("Caffeine detects no full-screen window and is not otherwise activated; deactivating...")
         self.setActivated(activate)
-        self.preventedForFullScreen = activate
 
         return True
-
 
     def getActivated(self):
         return self.sleepIsPrevented
 
-    def _deactivate(self):
-        self.toggleActivated()
-
-    
     def setActivated(self, activate):
         if self.getActivated() != activate:
             self.toggleActivated()
@@ -121,44 +110,18 @@ class Caffeine(GObject.GObject):
     def toggleActivated(self):
         """This function toggles the inhibition of desktop idleness."""
 
-        self.preventedForFullScreen = False
-
-        if self.sleepIsPrevented:
-            logging.info("Caffeine is now dormant")
-            self.status_string = _("Caffeine is dormant")
-
-        self._performTogglingActions()
-
-        if self.status_string == "":
-            self.status_string = _("Caffeine is preventing desktop idleness")
-        
-        self.emit("activation-toggled", self.getActivated(),
-                self.status_string)
-        self.status_string = ""
-        
-
-    def _performTogglingActions(self):
-        """This method performs the actions that affect desktop idleness."""
-
-        self._toggle()
-
-        if self.sleepIsPrevented == False:
-            logging.info("Caffeine is now preventing desktop idleness")
-
         self.sleepIsPrevented = not self.sleepIsPrevented
-
-    def _toggle(self):
-        """Toggle inhibition of desktop idleness with the freedesktop.org interface."""
 
         bus = dbus.SessionBus()
         self.susuProxy = bus.get_object('org.freedesktop.ScreenSaver', '/org/freedesktop/ScreenSaver')
         self.iface = dbus.Interface(self.susuProxy, 'org.freedesktop.ScreenSaver')
-        if self.sleepIsPrevented:
+        if not self.sleepIsPrevented:
             if self.screenSaverCookie != None:
                 self.iface.UnInhibit(self.screenSaverCookie)
         else:
             self.screenSaverCookie = self.iface.Inhibit('net.launchpad.caffeine', "Caffeine is inhibiting desktop idleness")
 
-## register a signal
-GObject.signal_new("activation-toggled", Caffeine,
-        GObject.SignalFlags.RUN_FIRST, None, [bool, str])
+        if self.sleepIsPrevented:
+            logging.info("Caffeine is now preventing desktop idleness")
+        else:
+            logging.info("Caffeine is now dormant")
