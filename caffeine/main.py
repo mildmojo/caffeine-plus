@@ -17,16 +17,13 @@
 #
 
 
-import os
 from gi.repository import Gtk, GObject
-import ctypes
 import argparse
 import signal
 
 ## local modules
 import caffeine
 import core
-import applicationinstance
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -37,26 +34,12 @@ class GUI(object):
         
 def main():
     signal.signal(signal.SIGINT, signal.SIG_DFL)
-
     GObject.threads_init()
 
-    ## register the process id as 'caffeine'
-    libc = ctypes.cdll.LoadLibrary('libc.so.6')
-    libc.prctl(15, 'caffeine', 0, 0, 0)
-  
     ## handle command line arguments
     parser = argparse.ArgumentParser(prog='caffeine', description='Prevent desktop idleness in full-screen mode')
     parser.add_argument('-V', '--version', action='version', version='caffeine ' + caffeine.VERSION)
     parser.parse_args()
     
-    ## Makes sure that only one instance of the Caffeine is run for
-    ## each user on the system.
-    pid_name = '/tmp/caffeine' + str(os.getuid()) + '.pid'
-    appInstance = applicationinstance.ApplicationInstance(pid_name)
-    if appInstance.isAnother():
-        appInstance.killOther()
-
     GUI()
-    appInstance.startApplication()
     Gtk.main()
-    appInstance.exitApplication()

@@ -25,8 +25,6 @@ import subprocess
 import dbus
 import logging
 
-import applicationinstance
-
 
 os.chdir(os.path.abspath(os.path.dirname(__file__)))
 
@@ -40,11 +38,6 @@ class Caffeine(GObject.GObject):
     def __init__(self):
         GObject.GObject.__init__(self)
         
-        ## Makes sure that only one instance of Caffeine is run for
-        ## each user on the system.
-        self.pid_name = '/tmp/caffeine' + str(os.getuid()) + '.pid'
-        self.appInstance = applicationinstance.ApplicationInstance( self.pid_name )
-
         # Set to True when sleep mode has been successfully inhibited somehow.
         self.sleepIsPrevented = False
 
