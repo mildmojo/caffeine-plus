@@ -38,7 +38,7 @@ class Caffeine(GObject.GObject):
     def __init__(self):
         GObject.GObject.__init__(self)
         
-        # Set to True when sleep mode has been successfully inhibited somehow.
+        # Set to True when idleness has been inhibited
         self.sleepIsPrevented = False
 
         self.screenSaverCookie = None
@@ -79,12 +79,7 @@ class Caffeine(GObject.GObject):
                                 if m:
                                     activate = True
 
-        if activate and not self.getActivated():
-            logging.info("Caffeine has detected a full-screen window, and will auto-activate")
-        elif not activate and self.getActivated():
-            logging.info("Caffeine detects no full-screen window and is not otherwise activated; deactivating...")
-        self.setActivated(activate)
-
+        # Return True so timeout is rerun
         return True
 
     def getActivated(self):
@@ -92,23 +87,15 @@ class Caffeine(GObject.GObject):
 
     def setActivated(self, activate):
         if self.getActivated() != activate:
-            self.toggleActivated()
+            self.sleepIsPrevented = not self.sleepIsPrevented
 
-    def toggleActivated(self):
-        """This function toggles the inhibition of desktop idleness."""
-
-        self.sleepIsPrevented = not self.sleepIsPrevented
-
-        bus = dbus.SessionBus()
-        self.susuProxy = bus.get_object('org.freedesktop.ScreenSaver', '/org/freedesktop/ScreenSaver')
-        self.iface = dbus.Interface(self.susuProxy, 'org.freedesktop.ScreenSaver')
-        if not self.sleepIsPrevented:
-            if self.screenSaverCookie != None:
-                self.iface.UnInhibit(self.screenSaverCookie)
-        else:
-            self.screenSaverCookie = self.iface.Inhibit('net.launchpad.caffeine', "Caffeine is inhibiting desktop idleness")
-
-        if self.sleepIsPrevented:
-            logging.info("Caffeine is now preventing desktop idleness")
-        else:
-            logging.info("Caffeine is now dormant")
+            bus = dbus.SessionBus()
+            self.susuProxy = bus.get_object('org.freedesktop.ScreenSaver', '/org/freedesktop/ScreenSaver')
+            self.iface = dbus.Interface(self.susuProxy, 'org.freedesktop.ScreenSaver')
+            if not self.sleepIsPrevented:
+                if self.screenSaverCookie != None:
+                    self.iface.UnInhibit(self.screenSaverCookie)
+                logging.info("Caffeine is now preventing desktop idleness")
+            else:
+                self.screenSaverCookie = self.iface.Inhibit('net.launchpad.caffeine', "Caffeine is inhibiting desktop idleness")
+                logging.info("Caffeine is now dormant")
