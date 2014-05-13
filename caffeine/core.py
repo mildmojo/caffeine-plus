@@ -40,9 +40,6 @@ class Caffeine(GObject.GObject):
     def __init__(self):
         GObject.GObject.__init__(self)
         
-        ## Status string.
-        self.status_string = ""
-
         ## Makes sure that only one instance of Caffeine is run for
         ## each user on the system.
         self.pid_name = '/tmp/caffeine' + str(os.getuid()) + '.pid'
@@ -57,9 +54,6 @@ class Caffeine(GObject.GObject):
         # FIXME: add capability to xdg-screensaver to report timeout
         GObject.timeout_add(30000, self._check_for_fullscreen)
         
-        print self.status_string
-
-
     def _check_for_fullscreen(self):
         activate = False
 
