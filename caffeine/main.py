@@ -17,13 +17,14 @@
 #
 
 
-from gi.repository import Gtk, GObject
+from gi.repository import GObject, GLib
 import argparse
 import signal
 import logging
 
 ## local modules
 import caffeine
+import core
 
 logging.basicConfig(level=logging.INFO)
 
@@ -35,5 +36,6 @@ def main():
     parser = argparse.ArgumentParser(prog='caffeine', description='Prevent desktop idleness in full-screen mode')
     parser.add_argument('-V', '--version', action='version', version='caffeine ' + caffeine.VERSION)
     parser.parse_args()
-    
-    Gtk.main()
+
+    core.Caffeine()
+    GLib.MainLoop().run()
