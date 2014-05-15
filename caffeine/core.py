@@ -82,20 +82,18 @@ class Caffeine(GObject.GObject):
         # Return True so timeout is rerun
         return True
 
-    def getActivated(self):
-        return self.sleepIsPrevented
-
     def setActivated(self, activate):
-        if self.getActivated() != activate:
-            self.sleepIsPrevented = not self.sleepIsPrevented
+        if self.sleepIsPrevented != activate:
+            self.sleepIsPrevented = activate
 
             bus = dbus.SessionBus()
             self.susuProxy = bus.get_object('org.freedesktop.ScreenSaver', '/org/freedesktop/ScreenSaver')
             self.iface = dbus.Interface(self.susuProxy, 'org.freedesktop.ScreenSaver')
-            if not self.sleepIsPrevented:
+
+            if activate:
+                self.screenSaverCookie = self.iface.Inhibit('net.launchpad.caffeine', "Caffeine is inhibiting desktop idleness")
+                logging.info("Caffeine is now dormant")
+            else:
                 if self.screenSaverCookie != None:
                     self.iface.UnInhibit(self.screenSaverCookie)
                 logging.info("Caffeine is now preventing desktop idleness")
-            else:
-                self.screenSaverCookie = self.iface.Inhibit('net.launchpad.caffeine', "Caffeine is inhibiting desktop idleness")
-                logging.info("Caffeine is now dormant")
