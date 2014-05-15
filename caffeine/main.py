@@ -20,11 +20,11 @@
 from gi.repository import Gtk, GObject
 import argparse
 import signal
+import logging
 
 ## local modules
 import caffeine
 import core
-import logging
 
 logging.basicConfig(level=logging.INFO)
 
