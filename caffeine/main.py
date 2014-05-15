@@ -24,7 +24,6 @@ import logging
 
 ## local modules
 import caffeine
-import core
 
 logging.basicConfig(level=logging.INFO)
 
