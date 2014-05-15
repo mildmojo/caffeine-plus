@@ -10,7 +10,7 @@ Homepage: https://launchpad.net/caffeine
 Package: caffeine
 Architecture: all
 Depends:${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
-    gir1.2-gtk-2.0, x11-utils, python-dbus
+    gir1.2-glib-2.0, x11-utils, python-dbus
 Description: Prevent the desktop becoming idle in full-screen mode
  Caffeine stops the desktop becoming idle when an application
  is running full-screen.
