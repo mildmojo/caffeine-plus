@@ -1,3 +1,11 @@
+caffeine (2.7) trusty; urgency=low
+
+  * Remove manual control, and hence UI.
+  * Allow multiple instances per user: should really be one per X
+    display.
+
+ -- Reuben Thomas <rrt@sc3d.org>  Thu, 15 May 2014 13:25:50 +0100
+
 caffeine (2.6.2) saucy; urgency=low
 
   * Add a build number just to persuade Launchpad to rebuild.
