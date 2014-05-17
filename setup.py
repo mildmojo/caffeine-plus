@@ -13,7 +13,7 @@ def main():
     data_files = []
     
     # don't trash the system icons!
-    black_list = ['index.theme', 'index.theme~']
+    black_list = ['index.theme']
 
     for path, dirs, files in os.walk(SHARE_PATH):
 
