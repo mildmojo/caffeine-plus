@@ -2,7 +2,7 @@ Source: caffeine
 Section: misc
 Priority: optional
 Maintainer: Reuben Thomas <rrt@sc3d.org>
-Build-Depends: debhelper (>= 8), dh-python, python-all (>= 2.6.6-3~), python-setuptools
+Build-Depends: debhelper (>= 8), dh-python, python3-all, python-setuptools
 X-Python-Version: >= 2.6
 Standards-Version: 3.9.5
 Homepage: https://launchpad.net/caffeine
@@ -10,7 +10,7 @@ Homepage: https://launchpad.net/caffeine
 Package: caffeine
 Architecture: all
 Depends:${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
-    gir1.2-glib-2.0, x11-utils, python-dbus
+    gir1.2-glib-2.0, python3-xlib, python3-dbus
 Description: Prevent the desktop becoming idle in full-screen mode
  Caffeine stops the desktop becoming idle when an application
  is running full-screen.

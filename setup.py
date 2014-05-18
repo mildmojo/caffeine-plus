@@ -35,6 +35,7 @@ def main():
         author="The Caffeine Developers",
         author_email="rrt@sc3d.org",
         url="https://launchpad.net/caffeine",
+        py_modules=["ewmh"],
         data_files=data_files,
         scripts=[os.path.join("bin", "caffeine")]
         )

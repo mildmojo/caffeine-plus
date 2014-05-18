@@ -15,24 +15,37 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
 
 import sys
+from os.path import join, dirname, pardir
+
+# if running locally
+sys.path.insert(0, join(dirname(__file__), pardir))
+
+# if installed
+x,y = sys.version_info[0:2]
+x = str(x)
+y = str(y)
+
+sys.path.insert(1, join(dirname(__file__), pardir,'lib',
+    'python'+x+'.'+y,'dist-packages'))
+
+sys.path.insert(1, join(dirname(__file__), pardir,'lib',
+    'python'))
+
+sys.path.append(join(dirname(__file__), pardir, 'share', 'pyshared'))
+
 import os
 import re
-import subprocess
 import dbus
 import logging
 import argparse
 import signal
+from ewmh import EWMH
 from gi.repository import GObject, GLib
 
 VERSION = "2.7"
-
-def subprocess_output(cmd):
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
-    p.wait()
-    return p
+ewmh = EWMH()
 
 class Caffeine(GObject.GObject):
 
@@ -48,35 +61,12 @@ class Caffeine(GObject.GObject):
     def _check_for_fullscreen(self):
         inhibit = False
 
-        # xvinfo returns 1 on normal exit: https://bugs.freedesktop.org/show_bug.cgi?id=74227
-        p = subprocess_output(['xvinfo'])
-        if 0 <= p.returncode <= 1:
-            # Enumerate the attached screens
-            display = os.getenv("DISPLAY")
-            screens = []
-
-            # Parse output
-            for l in p.stdout.read().splitlines():
-                m = re.match('screen #([0-9]+)$', l.decode(sys.stdin.encoding))
-                if m:
-                    screens.append(m.group(1))
-
-            # Loop through every screen looking for a full screen window
-            for s in screens:
-                # get ID of active window (the focussed window)
-                # FIXME: use python-xlib
-                p = subprocess_output(['xprop', '-display', display + '.' + s, '-root', '-f', '_NET_ACTIVE_WINDOW', '32x', ' $0', '_NET_ACTIVE_WINDOW'])
-                if p.returncode == 0:
-                    m = re.match('.* (.*)$', p.stdout.read().decode(sys.stdout.encoding))
-                    assert(m)
-                    active_win = m.group(1)
-
-                    # Check whether window is fullscreen
-                    p = subprocess_output(['xprop', '-display', display + '.' + s, '-id', active_win, '_NET_WM_STATE'])
-                    if p.returncode == 0:
-                        m = re.search('_NET_WM_STATE_FULLSCREEN', str(p.stdout.read()))
-                        if m:
-                            inhibit = True
+        win = ewmh.getActiveWindow()
+        if win != None:
+            # Check whether window is fullscreen
+            for p in ewmh.getWmState(win, str=True):
+                if p == '_NET_WM_STATE_FULLSCREEN':
+                    inhibit = True
 
         # If inhibition state has changed, take action
         if self.idlenessInhibited != inhibit:
