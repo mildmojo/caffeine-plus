@@ -34,7 +34,7 @@ class Caffeine(GObject.GObject):
 
         # Add hook for full-screen check (same interval as mplayer's heartbeat command)
         # FIXME: add capability to xdg-screensaver to report timeout
-        GObject.timeout_add(300, self._check_for_fullscreen)
+        GObject.timeout_add(30000, self._check_for_fullscreen)
 
     def _check_for_fullscreen(self):
         inhibit = False
