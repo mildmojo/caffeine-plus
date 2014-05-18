@@ -22,7 +22,11 @@ import signal
 from ewmh import EWMH
 from gi.repository import GObject, GLib
 
-VERSION = "2.7"
+# Handle command-line arguments
+parser = argparse.ArgumentParser(prog='caffeine', description='Prevent desktop idleness in full-screen mode')
+parser.add_argument('-V', '--version', action='version', version='caffeine 2.7')
+parser.parse_args()
+
 ewmh = EWMH()
 
 class Caffeine(GObject.GObject):
@@ -59,11 +63,6 @@ class Caffeine(GObject.GObject):
         # Return True so timeout is rerun
         return True
 
-
-# Handle command-line arguments
-parser = argparse.ArgumentParser(prog='caffeine', description='Prevent desktop idleness in full-screen mode')
-parser.add_argument('-V', '--version', action='version', version='caffeine ' + VERSION)
-parser.parse_args()
 
 # Set up and run
 logging.basicConfig(level=logging.INFO)
