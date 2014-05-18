@@ -37,14 +37,8 @@ class Caffeine(GObject.GObject):
         GObject.timeout_add(30000, self._check_for_fullscreen)
 
     def _check_for_fullscreen(self):
-        inhibit = False
-
         win = ewmh.getActiveWindow()
-        if win != None:
-            # Check whether window is fullscreen
-            for p in ewmh.getWmState(win, str=True):
-                if p == '_NET_WM_STATE_FULLSCREEN':
-                    inhibit = True
+        inhibit = win != None and '_NET_WM_STATE_FULLSCREEN' in ewmh.getWmState(win, str=True)
 
         # If inhibition state has changed, take action
         if self.idlenessInhibited != inhibit:
