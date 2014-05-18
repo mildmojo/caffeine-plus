@@ -1,1 +1,7 @@
-To run: "./bin/caffeine"
+The Caffeine SVG icons are Copyright (C) 2009 Tommy Brunn
+(http://www.blastfromthepast.se/blabbermouth), and distributed under the
+terms of the GNU Lesser General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version. See COPYING.LESSER, or http://www.gnu.org/licenses/
+
+Caffeine uses pyewmh from http://sf.net/projects/pyewmh
