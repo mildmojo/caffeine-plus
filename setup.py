@@ -30,7 +30,7 @@ def main():
     data_files.append(tuple(("/" + autostart_dir, [os.path.join(autostart_dir, desktop_name)])))
 
     setup(name="caffeine",
-        version="2.7",
+        version="2.7.1",
         description="""Stop the desktop from becoming idle in full-screen mode.""",
         author="The Caffeine Developers",
         author_email="rrt@sc3d.org",

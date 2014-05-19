@@ -24,7 +24,7 @@ from gi.repository import GObject, GLib
 
 # Handle command-line arguments
 parser = argparse.ArgumentParser(prog='caffeine', description='Prevent desktop idleness in full-screen mode')
-parser.add_argument('-V', '--version', action='version', version='caffeine 2.7')
+parser.add_argument('-V', '--version', action='version', version='caffeine 2.7.1')
 parser.parse_args()
 
 ewmh = EWMH()
