@@ -42,7 +42,12 @@ class Caffeine(GObject.GObject):
 
     def _check_for_fullscreen(self):
         win = ewmh.getActiveWindow()
-        inhibit = win != None and '_NET_WM_STATE_FULLSCREEN' in ewmh.getWmState(win, str=True)
+        inhibit = False
+        if win != None:
+            try:
+                inhibit = '_NET_WM_STATE_FULLSCREEN' in ewmh.getWmState(win, str=True)
+            except:
+                pass
 
         # If inhibition state has changed, take action
         if self.idlenessInhibited != inhibit:
