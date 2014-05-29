@@ -20,7 +20,7 @@ import logging
 import argparse
 import signal
 from ewmh import EWMH
-from gi.repository import GObject, GLib
+from gi.repository import GObject, Gtk
 
 # Handle command-line arguments
 parser = argparse.ArgumentParser(prog='caffeine', description='Prevent desktop idleness in full-screen mode')
@@ -74,4 +74,4 @@ logging.basicConfig(level=logging.INFO)
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 GObject.threads_init()
 Caffeine()
-GLib.MainLoop().run()
+Gtk.main()
