@@ -1,3 +1,10 @@
+caffeine (2.7.2) trusty; urgency=low
+
+  * Fix a crash when there is no active window (LP# 1322291).
+  * Fix Caffeine not terminating when the session ends (LP #1324304).
+
+ -- Reuben Thomas <rrt@sc3d.org>  Mon, 19 May 2014 18:21:22 +0100
+
 caffeine (2.7.1) trusty; urgency=low
 
   * Fix a crash when a window disappears during full-screen check.
