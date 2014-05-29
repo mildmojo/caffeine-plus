@@ -1,0 +1,93 @@
+# Chinese (Traditional) translation for caffeine
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the caffeine package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: caffeine\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-02-25 21:00+0000\n"
+"PO-Revision-Date: 2011-11-04 06:44+0000\n"
+"Last-Translator: Caffeine Developers <Unknown>\n"
+"Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-05-20 05:55+0000\n"
+"X-Generator: Launchpad (build 17009)\n"
+
+#. file 'caffeine/core.py', line 123
+msgid "Caffeine is dormant"
+msgstr ""
+
+#. file 'caffeine/core.py', line 128
+msgid "Caffeine is preventing desktop idleness"
+msgstr ""
+
+#. file 'caffeine/main.py', line 64
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Caffeine Developers https://launchpad.net/~caffeine-developers\n"
+"  Liu, Shu-yuan https://launchpad.net/~victorangus"
+
+#. file 'caffeine/main.py', line 85
+#. file 'caffeine/main.py', line 100
+#. file 'share/caffeine/glade/GUI.glade', line ?
+msgid "Disable Screensaver"
+msgstr "關閉螢幕保護程式"
+
+#. file 'caffeine/main.py', line 85
+#. file 'caffeine/main.py', line 100
+msgid "Enable Screensaver"
+msgstr "開啓螢幕保護程式"
+
+#. file 'share/caffeine/glade/GUI.glade', line ?
+msgid "Manually and automatically control the desktop’s idle state"
+msgstr ""
+
+#~ msgid "Activated for Quake Live"
+#~ msgstr "執行雷神之槌 Live (Quake Live)時啓動"
+
+#~ msgid "Please install"
+#~ msgstr "請安裝"
+
+#~ msgid "Activated for Flash video"
+#~ msgstr "播放Flash影片時啓動"
+
+#~ msgid " and "
+#~ msgstr " 和 "
+
+#~ msgid "hour"
+#~ msgstr "時"
+
+#~ msgid "minute"
+#~ msgstr "分"
+
+#~ msgid "hours"
+#~ msgstr "小時"
+
+#~ msgid "minutes"
+#~ msgstr "分鐘"
+
+#~ msgid "Autostart"
+#~ msgstr "自動啟動"
+
+#~ msgid "Preferences"
+#~ msgstr "偏好設定"
+
+#~ msgid "Start Caffeine on login"
+#~ msgstr "登入後啓動Caffeine"
+
+#~ msgid ""
+#~ "Enable this option to automatically run Caffeine as soon as\n"
+#~ "your computer has finished starting up and you have\n"
+#~ "successfully entered your username and password."
+#~ msgstr "Caffeine將在電腦完成開機並登入後自動啓動。"
+
+#~ msgid "Minutes:"
+#~ msgstr "分鐘："
+
+#~ msgid "Hours:"
+#~ msgstr "小時："
