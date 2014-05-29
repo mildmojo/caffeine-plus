@@ -181,7 +181,7 @@ class EWMH:
 		:param state2: a state or 0
 		:type state2: int or str (see :attr:`NET_WM_STATES`)"""
 		if type(state) != int: state = self.display.get_atom(state, 1)
-		if type(state2) != int: state = self.display.get_atom(state2, 1)
+		if type(state2) != int: state2 = self.display.get_atom(state2, 1)
 		self._setProperty('_NET_WM_STATE', [action, state, state2, 1], win)
 	
 	# ------------------------ getters properties ------------------------
@@ -229,7 +229,10 @@ class EWMH:
 		"""Get the current active (toplevel) window or None (property _NET_ACTIVE_WINDOW)
 		
 		:return: Window object or None"""
-		return self._createWindow(self._getProperty('_NET_ACTIVE_WINDOW')[0])
+                active_window = self._getProperty('_NET_ACTIVE_WINDOW')
+                if active_window == None:
+                        return None
+                return self._createWindow(active_window[0])
 	
 	def getWorkArea(self):
 		"""Get the work area for each desktop (property _NET_WORKAREA) as a list of [x, y, width, height]
