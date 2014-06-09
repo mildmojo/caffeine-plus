@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   id="svg4591"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="caffeine-cup-empty.svg"
+   inkscape:export-filename="/home/shrapnel/code/caffeine/caffeine-cup-empty48.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4593">
+    <clipPath
+       id="clipPath3784-70-5"
+       clipPathUnits="userSpaceOnUse">
+      <rect
+         ry="4.9509368"
+         y="40.677967"
+         x="-150"
+         height="47.033897"
+         width="106.77966"
+         id="rect3786-5-0"
+         style="fill:#000000;fill-opacity:1;stroke:none" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5260">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:none"
+         id="rect5262"
+         width="52.122875"
+         height="25.926208"
+         x="-6.1325283"
+         y="19.131025"
+         ry="2.7290747" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5293">
+      <rect
+         style="fill:#0e0881;fill-opacity:1;stroke:none"
+         id="rect5295"
+         width="14.274718"
+         height="18.42897"
+         x="35.355339"
+         y="1021.0285"
+         ry="3.3184016" />
+    </clipPath>
+    <filter
+       id="filter5389"
+       inkscape:label="Invert"
+       x="0"
+       y="0"
+       width="1"
+       height="1"
+       inkscape:menu="Color"
+       inkscape:menu-tooltip="Invert colors"
+       color-interpolation-filters="sRGB">
+      <feColorMatrix
+         id="feColorMatrix5391"
+         type="saturate"
+         values="1"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         id="feColorMatrix5393"
+         in="fbSourceGraphic"
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 " />
+    </filter>
+    <filter
+       id="filter5395"
+       inkscape:label="Invert"
+       x="0"
+       y="0"
+       width="1"
+       height="1"
+       inkscape:menu="Color"
+       inkscape:menu-tooltip="Invert colors"
+       color-interpolation-filters="sRGB">
+      <feColorMatrix
+         id="feColorMatrix5397"
+         type="saturate"
+         values="1"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         id="feColorMatrix5399"
+         in="fbSourceGraphic"
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 " />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.313708"
+     inkscape:cx="29.882552"
+     inkscape:cy="24.615629"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:object-nodes="false"
+     inkscape:snap-smooth-nodes="false"
+     inkscape:bbox-nodes="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="718"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4596">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1004.3622)">
+    <path
+       style="fill:#ebebeb;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter5389)"
+       clip-path="url(#clipPath5260)"
+       d="M 20.25 11.125 C 13.931864 11.125 8.3404031 14.29376 5 19.125 L 4.21875 19.125 C 2.8436989 19.125 1.71875 20.21875 1.71875 21.59375 L 1.71875 29.65625 L 1.71875 29.875 C 1.71875 29.929207 1.7466105 29.977928 1.75 30.03125 C 1.9539639 40.078225 10.154172 48.15625 20.25 48.15625 C 30.345826 48.15625 38.514786 40.078225 38.71875 30.03125 C 38.721336 29.903859 38.75 29.78426 38.75 29.65625 L 38.75 21.59375 C 38.75 20.21875 37.656301 19.125 36.28125 19.125 L 35.46875 19.125 C 32.128211 14.294733 26.567381 11.125 20.25 11.125 z M 7.125 22.09375 L 33.34375 22.09375 C 34.38833 22.09375 35.21875 22.92415 35.21875 23.96875 L 35.21875 30.25 C 35.21875 33.0758 33.880518 38.9609 28.53125 42.4375 L 11.9375 42.4375 C 5.9960037 38.6459 5.21875 31.9977 5.21875 30.25 L 5.21875 23.96875 C 5.21875 22.92415 6.0804205 22.09375 7.125 22.09375 z "
+       transform="translate(0,1004.3622)"
+       id="path3006-5" />
+    <rect
+       ry="2.4702184"
+       y="1025.2681"
+       x="33.262829"
+       height="9.7250977"
+       width="11.988064"
+       id="rect3788-0"
+       style="fill:none;stroke:#ebebeb;stroke-width:3.45062517999999985;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter5395)"
+       clip-path="url(#clipPath5293)" />
+  </g>
+</svg>
