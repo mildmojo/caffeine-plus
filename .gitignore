@@ -1,0 +1,9 @@
+.pybuild
+__pycache__
+build
+debian/caffeine.debhelper.log
+debian/caffeine.*.debhelper
+debian/caffeine.substvars
+debian/files
+debian/caffeine
+etc
