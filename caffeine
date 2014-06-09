@@ -19,8 +19,9 @@ import dbus
 import logging
 import argparse
 import signal
+import sys
 from ewmh import EWMH
-from gi.repository import GObject, Gtk
+from gi.repository import GObject, Gtk, AppIndicator3 # had to install gir1.2-appindicator3-0.1
 
 # Handle command-line arguments
 parser = argparse.ArgumentParser(prog='caffeine', description='Prevent desktop idleness in full-screen mode')
@@ -33,12 +34,52 @@ class Caffeine(GObject.GObject):
 
     def __init__(self):
         GObject.GObject.__init__(self)
+        self.manualInhibited = False
         self.idlenessInhibited = False
         self.screenSaverCookie = None
+
+        self._add_indicator()
 
         # Add hook for full-screen check (same interval as mplayer's heartbeat command)
         # FIXME: add capability to xdg-screensaver to report timeout
         GObject.timeout_add(30000, self._check_for_fullscreen)
+
+    def _add_indicator(self):
+        self.AppInd = AppIndicator3.Indicator.new("caffeine-cup-empty",
+                                                  "caffeine",
+                                                  AppIndicator3.IndicatorCategory.APPLICATION_STATUS)
+        self.AppInd.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
+        self.AppInd.set_icon ("caffeine-cup-empty")
+
+        self._build_indicator_menu(self.AppInd)
+
+    def _build_indicator_menu(self, indicator):
+        menu = Gtk.Menu()
+
+        menu_item = Gtk.MenuItem("Toggle Screensaver")
+        menu.append(menu_item)
+        menu_item.connect("activate", self.on_toggle)
+        menu_item.show()
+
+        menu_item = Gtk.MenuItem("Quit")
+        menu.append(menu_item)
+        menu_item.connect("activate", self.on_quit)
+        menu_item.show()
+
+        indicator.set_menu(menu)
+
+    def on_toggle(self, menuitem):
+        self.manualInhibited = not self.manualInhibited
+        self._check_for_fullscreen();
+
+    def on_quit(self, menuitem):
+        sys.exit(0)
+
+    def _set_icon_disabled(self):
+        self.AppInd.set_icon('caffeine-cup-empty')
+
+    def _set_icon_enabled(self):
+        self.AppInd.set_icon('caffeine-cup-full')
 
     def _check_for_fullscreen(self):
         win = ewmh.getActiveWindow()
@@ -48,6 +89,7 @@ class Caffeine(GObject.GObject):
                 inhibit = '_NET_WM_STATE_FULLSCREEN' in ewmh.getWmState(win, str=True)
             except:
                 pass
+        inhibit = inhibit or self.manualInhibited
 
         # If inhibition state has changed, take action
         if self.idlenessInhibited != inhibit:
@@ -59,10 +101,12 @@ class Caffeine(GObject.GObject):
 
             if inhibit:
                 self.screenSaverCookie = self.iface.Inhibit('net.launchpad.caffeine', "Caffeine is inhibiting desktop idleness")
+                self._set_icon_enabled()
                 logging.info("Caffeine is inhibiting desktop idleness")
             else:
                 if self.screenSaverCookie != None:
                     self.iface.UnInhibit(self.screenSaverCookie)
+                self._set_icon_disabled();
                 logging.info("Caffeine is no longer inhibiting desktop idleness")
 
         # Return True so timeout is rerun
