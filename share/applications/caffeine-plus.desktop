@@ -1,8 +1,8 @@
 [Desktop Entry]
 Icon=caffeine
-Name=Caffeine
+Name=Caffeine Plus
 Comment=Temporarily deactivate the screensaver and sleep mode
-Exec=/usr/bin/caffeine
+Exec=/usr/bin/caffeine-plus
 Terminal=false
 Type=Application
 Categories=Utility;TrayIcon;
