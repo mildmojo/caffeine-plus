@@ -26,7 +26,7 @@ running w/o installing)
 
 ## Installation
 
-- `python setup.py install` (maybe? need to confirm)
+- `sudo python setup.py install --prefix /usr`
 
 - (optional) To have Caffeine Plus run on startup, add it to your System
 Settings => Startup Programs list.
