@@ -16,17 +16,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import dbus
 import logging
 import argparse
 import signal
 import sys
 from ewmh import EWMH
+from subprocess import call
 from gi.repository import GObject, Gtk, AppIndicator3 # had to install gir1.2-appindicator3-0.1
 
 # Handle command-line arguments
-parser = argparse.ArgumentParser(prog='caffeine', description='Prevent desktop idleness in full-screen mode')
-parser.add_argument('-V', '--version', action='version', version='caffeine 2.7.2')
+parser = argparse.ArgumentParser(prog='caffeine-plus', description='Prevent desktop idleness in full-screen mode')
+parser.add_argument('-V', '--version', action='version', version='caffeine-plus 2.7.4')
 parser.parse_args()
 
 ewmh = EWMH()
@@ -96,17 +96,14 @@ class Caffeine(GObject.GObject):
         if self.idlenessInhibited != inhibit:
             self.idlenessInhibited = inhibit
 
-            bus = dbus.SessionBus()
-            self.susuProxy = bus.get_object('org.freedesktop.ScreenSaver', '/org/freedesktop/ScreenSaver')
-            self.iface = dbus.Interface(self.susuProxy, 'org.freedesktop.ScreenSaver')
-
             if inhibit:
-                self.screenSaverCookie = self.iface.Inhibit('net.launchpad.caffeine', "Caffeine is inhibiting desktop idleness")
                 self._set_icon_enabled()
+                self.screenSaverWindowID = hex(win.id)
+                call(['xdg-screensaver', 'suspend', self.screenSaverWindowID])
                 logging.info("Caffeine is inhibiting desktop idleness")
             else:
-                if self.screenSaverCookie != None:
-                    self.iface.UnInhibit(self.screenSaverCookie)
+                if self.screenSaverWindowID != None:
+                    call(['xdg-screensaver', 'resume', self.screenSaverWindowID])
                 self._set_icon_disabled();
                 logging.info("Caffeine is no longer inhibiting desktop idleness")
 
