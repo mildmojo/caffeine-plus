@@ -36,24 +36,21 @@ running w/o installing)
 
 ### Installation
 
-- `sudo python setup.py install --prefix /usr`
-
-- (optional) To have Caffeine Plus run on startup, add it to your System
-Settings => Startup Programs list.
+`make install`
 
 ### License
 
-Caffeine Plus is distributed under the GNU General Public License, either version
-3, or (at your option) any later version. See LICENSE.
+    Caffeine Plus is distributed under the GNU General Public License, either version
+    3, or (at your option) any later version. See LICENSE.
 
-The Caffeine Plus status icons are Copyright (C) 2014 mildmojo
-(http://github.com/mildmojo), and distributed under the terms of the GNU Lesser
-General Public License, either version 3, or (at your option) any later version.
-See LICENSE.LESSER.
+    The Caffeine Plus status icons are Copyright (C) 2014 mildmojo
+    (http://github.com/mildmojo), and distributed under the terms of the GNU Lesser
+    General Public License, either version 3, or (at your option) any later version.
+    See LICENSE.LESSER.
 
-The Caffeine Plus SVG shortcut icons are Copyright (C) 2009 Tommy Brunn
-(http://www.blastfromthepast.se/blabbermouth), and distributed under the
-terms of the GNU Lesser General Public License, either version 3, or (at
-your option) any later version. See LICENSE.LESSER.
+    The Caffeine Plus SVG shortcut icons are Copyright (C) 2009 Tommy Brunn
+    (http://www.blastfromthepast.se/blabbermouth), and distributed under the
+    terms of the GNU Lesser General Public License, either version 3, or (at
+    your option) any later version. See LICENSE.LESSER.
 
-Caffeine Plus uses pyewmh from http://sf.net/projects/pyewmh
+    Caffeine Plus uses pyewmh from https://github.com/parkouss/pyewmh
