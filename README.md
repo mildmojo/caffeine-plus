@@ -1,4 +1,14 @@
-# Caffeine Plus
+# DEPRECATED PROJECT, DO NOT USE
+
+Caffeine Plus was created in response to the original Caffeine developer removing the tray icon UI for controlling Caffeine's behavior. Since then, he's added a companion app that restores the icon. This fork is no longer necessary or maintained.
+
+Please use the original [caffeine](https://launchpad.net/caffeine) project and add `caffeine-indicator` to your startup applications to get the system tray icon.
+
+The original README is shown below for archival purposes. This project is no longer maintained.
+
+
+
+## Caffeine Plus
 
 Caffeine Plus is a small daemon that prevents the desktop from becoming idle
 (and hence the screen saver and/or blanker from activating). It does this
@@ -13,7 +23,7 @@ to restore that functionality.
 I don't know Python, so this is a bit of copypasta from [Caffeine 2.5](https://github.com/mildmojo/caffeine-plus/tree/2.5)
 and the [AppIndicator docs](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Python_version).
 
-## System requirements
+### System requirements
 
 - Any Linux desktop system that offers the `org.freedesktop.ScreenSaver` DBus API.
 This includes, but is not limited to, Linux Mint 16 and Ubuntu 14.04. Probably
@@ -24,14 +34,14 @@ works on lots of older distributions, too.
 - `apt-get install python-xlib gir1.2-appindicator3-0.1` (python3-xlib if
 running w/o installing)
 
-## Installation
+### Installation
 
 - `sudo python setup.py install --prefix /usr`
 
 - (optional) To have Caffeine Plus run on startup, add it to your System
 Settings => Startup Programs list.
 
-## License
+### License
 
 Caffeine Plus is distributed under the GNU General Public License, either version
 3, or (at your option) any later version. See LICENSE.
